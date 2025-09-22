@@ -1,8 +1,8 @@
 import cors from 'cors'
 import express, {urlencode} from 'express'
-import { connectToDatabase } from './scr/common/db.js';
-import peliculaRoutes from './scr/pelicula/routes.js';
-import { ActorRoutes } from './scr/actor/routes.js';
+import { connectToDatabase } from './src/common/db.js';
+import peliculaRoutes from './src/pelicula/routes.js';
+import { ActorRoutes } from './src/actor/routes.js';
 
 
 
