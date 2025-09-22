@@ -9,26 +9,22 @@ const { urlencoded } = express;
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-// Middlewares
 app.use(express.json());
 app.use(urlencoded({ extended: true }));
 app.use(cors());
 
-// Ruta raíz (para que no salga "Cannot GET /")
+
 app.get('/', (req, res) => {
-  res.status(200).send('Servidor funcionando 🚀. Bienvenido a la API del cine Iplacex.');
+  res.status(200).send('Bienvenido a la API de cine');
 });
 
-// Rutas de la API
 app.use('/api', peliculaRoutes);
 app.use('/api', ActorRoutes);
 
-// Mensaje de bienvenida si alguien entra a /api directamente
 app.get('/api', (req, res) => {
-  res.status(200).send('Bienvenido a la API del cine Iplacex. Usa /api/actores o /api/peliculas');
+  res.status(200).send('Bienvenido a la API de cine');
 });
 
-// Conexión a la BD y levantamiento del servidor
 connectToDatabase()
   .then(() => {
     app.listen(PORT, () => {
